@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    
+    <form action = "{% url 'blog_create' %}"  method='post' >
+        <div class="form-group">
+            {% csrf_token %}
+            <div class="form-group row ml-3" >
+            {{form.as_p}}
+            </div>
+            <button type="submit"  class="btn btn-success">
+                <i class="fas fa-plus-square">
+                    <img width="20px" class="mr-3" src="{% static 'blog/img/calendar-plus-regular.svg' %}">
+                </i>jadvalga qo'shish
+            </button>
+            <a href="{% url 'blog_list' %}" class="btn btn-success" height="150px" >Orqaga</a>
+        </div>
+    </form><hr>
+   
+</div>
+{% endblock content %}

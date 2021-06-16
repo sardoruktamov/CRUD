@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+<form actions="/blog_update/{{bolg.blog_id}}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit"  class="btn btn-success"><i class="far fa-save">
+        <img width="20px" src="{% static 'blog/img/save.svg' %}">
+        </i>Saqlash
+    </button>
+    <a href="{% url 'blog_list' %}" class="btn btn-success" height="150px" >
+    Orqaga</a>
+
+</form>
+</div>
+{% endblock content %}

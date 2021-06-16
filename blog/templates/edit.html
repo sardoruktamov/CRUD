@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form actions="/blog_update/{{bolg.blog_id}}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit"  class="btn btn-success">Saqlash
+    </button>
+    <a href="{% url 'blog_list' %}" class="btn btn-success" height="150px" >
+    Orqaga</a>
+
+</form>
+{% endblock content %}

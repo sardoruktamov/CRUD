@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        
+        <div>
+        <a href="{% url 'blog_create' %}" type="submit" id="qoshish"  class="btn btn-success">
+                <i class="fas fa-plus-square">
+                    <img width="25px" class="mr-3" src="{% static 'blog/img/calendar-plus-regular.svg' %}">
+                </i>jadvalga qo'shish
+        </a>
+        </div>
+    </div>
+
+    <table class="table">
+    <thead class="thead-dark">
+        <tr >
+        <th scope="col">T/R</th>
+        <th scope="col">Title</th>
+        <th scope="col">Sana</th>
+        <th scope="col">Update or Delete </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for blog in blogs %}
+            <tr class="table-light qator">
+            <th scope="row">{{blog.id}}</th>
+            <td>{{blog.title}}</td>
+            <td>{{blog.sana |date:'d b Y'}}</td>
+            <td >
+                <a class="btn btn-secondary" href="blog_update/{{blog.id}}">
+                    <i class="fas fa-edit">
+                        <img width="20px" src="{% static 'blog/img/edit-solid.svg' %}">
+                    </i>
+                O'zgartirish</a>
+                <a class="btn btn-danger" href="delete/{{blog.id}}">
+                    <i class="fas fa-trash-alt">
+                        <img width="15px" src="{% static 'blog/img/delete.svg' %}">
+                    </i>
+                O'chirish</a>
+            </td>
+            </tr>
+        {% endfor %}
+    <tbody>
+    </table>
+</div>
+
+
+{% endblock content %}
